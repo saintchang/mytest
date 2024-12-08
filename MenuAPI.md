@@ -28,16 +28,16 @@
 - 格式：`JSON`
 
 #### 範例
-```json
+```
 {
   "id": "testUser"
 }
 ```
 ### Response
-```json
-HTTP/1.1 200 OK
-Content-Type: application/json
+- HTTP/1.1 200 OK
+- Content-Type: application/json
 
+```
 {
   "status": "success",
   "data": [
@@ -56,5 +56,3 @@ Content-Type: application/json
   ],
   "message": "Function menu retrieved successfully"
 }
-
-
