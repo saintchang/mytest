@@ -1,63 +1,26 @@
-# Login API
+# Login API 說明文件
 
-## 簡介
-- **API 名稱**: Login API
-- **描述**: 驗證用戶的 ID 和 Password，成功後返回授權 Token。
-- **版本**: v1
-- **基礎 URL**: `https://api.example.com`
+## 📘 功能簡介
+使用者透過輸入 `id` 和 `password` 進行身分驗證，驗證成功後系統會回傳使用者資訊與 JWT Token。
 
 ---
 
-## 路徑與方法
+## 📥 API 請求資訊
 
-| 方法  | 路徑             | 描述                     |
-|-------|------------------|--------------------------|
-| POST  | `/api/v1/login`  | 驗證用戶登錄信息並返回 Token |
+- **方法**：`POST`
+- **URL**：`/api/v1/login`
+- **Content-Type**：`application/json`
 
----
+### ✅ 請求參數
 
-## 請求規範
+| 參數名稱   | 型別     | 必填 | 說明           |
+|------------|----------|------|----------------|
+| id         | string   | 是   | 使用者帳號，對應資料表欄位 `MM_NO` |
+| password   | string   | 是   | 使用者密碼，對應資料表欄位 `PSW`   |
 
-### Headers
-| 名稱           | 必填 | 類型          | 描述                       |
-|-----------------|------|---------------|----------------------------|
-| `Content-Type` | 是   | `string`      | 請求數據格式，固定為 `application/json` |
-
-## 錯誤碼清單
-
-| 錯誤碼   | 描述                                   |
-|----------|----------------------------------------|
-| `4001`   | 缺少必要參數（如 ID 或 Password）。     |
-| `4002`   | 輸入格式錯誤（如 ID 長度超過限制）。   |
-| `4011`   | 賬號或密碼錯誤。                      |
-| `5001`   | 伺服器內部錯誤。                      |
-
-
-### Request Body
-- 格式：`JSON`
-
-## 使用案例
-
-### 成功請求
-**Request**
-```http
-POST /api/v1/login HTTP/1.1
-Host: api.example.com
-Content-Type: application/json
-
-{
-  "id": "testUser",
-  "password": "123456"
-}
-```
-
-### 失敗回應
-
-#### 1. 資料錯誤
-- **狀態碼**: `400 Bad Request`
-- **範例**
+#### 📦 請求範例
 ```json
 {
-  "status": "error",
-  "message": "ID and Password are required"
+  "id": "testUser",
+  "password": "abc123"
 }
