@@ -7,6 +7,7 @@
   - 框架: .NET 10 Web API。
   - 通訊組件: IHttpClientFactory (避免 Socket 耗盡)。
   - 注入模式: 採用 Scoped 或 Singleton 管理遠端服務配置。
+    
 
 ## API 定義 (Endpoint Definition)
   - Route: POST /api/v1/proxy/dispatch
@@ -27,5 +28,5 @@
 
 ## 監控與安全
   - Logging: 記錄每次請求的 RequestSize、ResponseTime 以及 CorrelationID。
-  - Security: 限制僅允許特定來源的網域（CORS Policy）進行調用。
+  - Security: 來源 IP 需要在白名單內進行調用。
   - Memory: 針對大檔案應直接操作 Stream 進行轉發，不進行字串序列化以節省記憶體空間。
