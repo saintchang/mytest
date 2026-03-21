@@ -4,7 +4,7 @@
 此 API 作為內部服務的代理（Proxy），隱藏後端 XML Server 的實體路徑與認證資訊，並負責傳遞上行與下行的 XML 資料封包。
 
 ## 技術架構
-  - 框架: .NET 6/8+ Web API。
+  - 框架: .NET 10 Web API。
   - 通訊組件: IHttpClientFactory (避免 Socket 耗盡)。
   - 注入模式: 採用 Scoped 或 Singleton 管理遠端服務配置。
 
