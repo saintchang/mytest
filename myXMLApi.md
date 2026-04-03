@@ -30,3 +30,10 @@
   - Logging: 記錄每次請求的 RequestSize、ResponseTime 以及 CorrelationID。
   - Security: 來源 IP 需要在白名單內進行調用。
   - Memory: 針對大檔案應直接操作 Stream 進行轉發，不進行字串序列化以節省記憶體空間。
+
+```
+  curl -i -X POST http://localhost:5065/api/v1/proxy/dispatch \
+         -H "Content-Type: application/xml" \
+         -H "X-Correlation-ID: curl-test-001" \
+         -d "<Request><Data>Hello</Data></Request>"
+```
